@@ -3,22 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DRS Express - Página Principal</title>
+    <title>Página Principal</title>
     <link rel="stylesheet" href="Estilos/pagina2.css">
 </head>
 <body>
-    <div class="main-container">
+    <div class="header">
         <h1>Bienvenido a DRS Express</h1>
-        <p>Suscríbete a nuestro boletín de noticias de la F1.</p>
+        <div class="navigation">
+            <a href="pagina3.html">Formulario de Empleado</a>
+            <a href="pagina4.html">Tabla de Calculos</a>
+            <a href="index.html">Cerrar Sesión</a>
+        </div>
+    </div>
+
         
         <div class="card-container">
             <div class="card">
-                <h2>Suscripción a la Cronica del Gran Premio</h2>
+                <h2>Suscripción a Crónicas del Gran Premio</h2>
                 <form id="subscriptionForm">
-                    <label for="firstName">Nombre:</label>
+                    <label for="firstName">Nombre</label>
                     <input type="text" id="firstName" name="firstName" required>
-                    <label for="lastName">Apellido:</label>
+                    <label for="lastName">Apellido</label>
                     <input type="text" id="lastName" name="lastName" required>
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required>
                     <button type="submit">Suscribirse</button>
                 </form>
                 <p id="subscriptionMessage"></p>

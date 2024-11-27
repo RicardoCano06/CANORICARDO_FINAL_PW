@@ -14,13 +14,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const firstName = document.getElementById('firstName').value;
         const lastName = document.getElementById('lastName').value;
+        const email = document.getElementById('email').value;
 
         emailjs.send('service_zjsadj6', 'template_0zqovl8', {
             firstName: firstName,
-            lastName: lastName
+            lastName: lastName,
+            email: email
         }).then(function(response) {
             subscriptionMessage.style.color = 'green';
             subscriptionMessage.textContent = 'Suscripción exitosa. Revisa tu correo.';
+            subscriptionForm.reset(); // Limpiar el formulario después de una suscripción exitosa
         }).catch(function(error) {
             subscriptionMessage.style.color = 'red';
             subscriptionMessage.textContent = 'Hubo un error al enviar el correo.';
@@ -29,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cargar imagen de Flickr
     loadImage.addEventListener('click', function() {
-        const apiKey = '901045d09eed25cc92047d654dc1d083'; // Reemplaza con tu clave de API de Flickr
+        const apiKey = '901045d09eed25cc92047d654dc1d083';
         const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=formulaone&format=json&nojsoncallback=1`;
 
         fetch(url)
