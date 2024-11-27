@@ -11,22 +11,31 @@
         <h1>Bienvenido a DRS Express</h1>
         <p>Suscríbete a nuestro boletín de noticias de la F1.</p>
         
-        <form id="subscriptionForm">
-            <label for="firstName">Nombre:</label>
-            <input type="text" id="firstName" name="firstName" required>
-            <label for="lastName">Apellido:</label>
-            <input type="text" id="lastName" name="lastName" required>
-            <button type="submit">Suscribirse</button>
-        </form>
-        <p id="subscriptionMessage"></p>
+        <div class="card-container">
+            <div class="card">
+                <h2>Suscripción a la Cronica del Gran Premio</h2>
+                <form id="subscriptionForm">
+                    <label for="firstName">Nombre:</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                    <label for="lastName">Apellido:</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                    <button type="submit">Suscribirse</button>
+                </form>
+                <p id="subscriptionMessage"></p>
+            </div>
 
-        <h2>Galería de Imágenes de F1</h2>
-        <button id="loadImage">Cargar Foto</button>
-        <div id="imageContainer"></div>
+            <div class="card">
+                <h2>Galería de Imágenes de F1</h2>
+                <button id="loadImage">Cargar Foto</button>
+                <div id="imageContainer"></div>
+            </div>
 
-        <h2>Datos de la F1</h2>
-        <button id="loadData">Obtener Datos</button>
-        <div id="dataContainer"></div>
+            <div class="card">
+                <h2>Datos de la F1</h2>
+                <button id="loadData">Obtener Datos</button>
+                <div id="dataContainer"></div>
+            </div>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="JavaScript/pagina2.js"></script>

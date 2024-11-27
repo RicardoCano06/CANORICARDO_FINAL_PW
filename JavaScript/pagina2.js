@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const firstName = document.getElementById('firstName').value;
         const lastName = document.getElementById('lastName').value;
 
-        emailjs.send('service_zjsadj6', 'template_ktnsfbi', {
+        emailjs.send('service_zjsadj6', 'template_0zqovl8', {
             firstName: firstName,
             lastName: lastName
         }).then(function(response) {
@@ -48,21 +48,63 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Obtener datos de Ergast Developer API
     loadData.addEventListener('click', function() {
-        fetch('https://ergast.com/api/f1/current/driverStandings.json')
-            .then(response => response.json())
-            .then(data => {
-                const standings = data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
-                const randomIndex = Math.floor(Math.random() * standings.length);
-                const driver = standings[randomIndex].Driver;
-                dataContainer.innerHTML = `
-                    <p>Nombre: ${driver.givenName} ${driver.familyName}</p>
-                    <p>Nacionalidad: ${driver.nationality}</p>
-                    <p>Constructor: ${standings[randomIndex].Constructors[0].name}</p>
-                    <p>Puntos: ${standings[randomIndex].points}</p>
-                `;
-            })
-            .catch(error => {
-                dataContainer.textContent = 'Hubo un error al obtener los datos.';
-            });
+        dataContainer.innerHTML = '<p>Cargando datos...</p>'; // Mostrar mensaje de carga
+
+        const randomData = Math.floor(Math.random() * 3); // Generar un número aleatorio entre 0 y 2
+        const seasons = [2020, 2021, 2023, 2024]; // Temporadas a filtrar
+        const randomSeason = seasons[Math.floor(Math.random() * seasons.length)]; // Seleccionar una temporada aleatoria
+
+        switch(randomData) {
+            case 0:
+                // Obtener datos de pilotos
+                fetch(`https://ergast.com/api/f1/${randomSeason}/driverStandings.json`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const standings = data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+                        const randomIndex = Math.floor(Math.random() * standings.length);
+                        const driver = standings[randomIndex].Driver;
+                        dataContainer.innerHTML = `
+                            <p><strong>Piloto (${randomSeason}):</strong> ${driver.givenName} ${driver.familyName}</p>
+                            <p><strong>Nacionalidad:</strong> ${driver.nationality}</p>
+                            <p><strong>Constructor:</strong> ${standings[randomIndex].Constructors[0].name}</p>
+                            <p><strong>Puntos (${randomSeason}):</strong> ${standings[randomIndex].points}</p>
+                        `;
+                    })
+                    .catch(error => {
+                        dataContainer.innerHTML = '<p>Hubo un error al obtener los datos de los pilotos.</p>';
+                    });
+                break;
+            case 1:
+                // Obtener datos de campeonatos
+                fetch(`https://ergast.com/api/f1/${randomSeason}/driverStandings/1.json`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const champion = data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0].Driver;
+                        dataContainer.innerHTML = `
+                            <p><strong>Campeón de ${randomSeason}:</strong> ${champion.givenName} ${champion.familyName}</p>
+                        `;
+                    })
+                    .catch(error => {
+                        dataContainer.innerHTML = '<p>Hubo un error al obtener los datos del campeón actual.</p>';
+                    });
+                break;
+            case 2:
+                // Obtener datos de circuitos
+                fetch(`https://ergast.com/api/f1/${randomSeason}/circuits.json`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const circuits = data.MRData.CircuitTable.Circuits;
+                        const randomIndex = Math.floor(Math.random() * circuits.length);
+                        const circuit = circuits[randomIndex];
+                        dataContainer.innerHTML = `
+                            <p><strong>Circuito:</strong> ${circuit.circuitName}</p>
+                            <p><strong>Localización:</strong> ${circuit.Location.locality}, ${circuit.Location.country}</p>
+                        `;
+                    })
+                    .catch(error => {
+                        dataContainer.innerHTML = '<p>Hubo un error al obtener los datos del circuito.</p>';
+                    });
+                break;
+        }
     });
 });
