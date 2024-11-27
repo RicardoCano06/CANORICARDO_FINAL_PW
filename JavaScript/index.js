@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
-        if (username === 'admin' && password === '1234') {
+        if (username === 'user' && password === 'pass') {
             message.style.color = 'green';
             message.textContent = 'Ingreso correcto';
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 message: 'Ha ingresado a la página web.'
             }).then(function(response) {
                 console.log('Correo enviado con éxito', response.status, response.text);
-                window.location.href = 'pagina2.html';
+                window.location.href = 'main.html'; // Redirigir a main.html
             }).catch(function(error) {
                 console.error('Error al enviar el mensaje:', error);
                 message.textContent = 'Hubo un error al enviar el correo.';

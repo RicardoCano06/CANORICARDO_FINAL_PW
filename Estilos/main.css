@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1C1C1C; /* Negro F1 */
+    color: #FFFFFF; /* Blanco */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    overflow-y: auto;
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #1C1C1C; /* Negro F1 */
+}
+
+.header h1 {
+    color: #D71A1A; /* Rojo F1 */
+    margin-bottom: 10px;
+}
+
+.navigation a {
+    color: #FFFFFF; /* Blanco */
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s, text-decoration 0.2s; /* Transición para color y subrayado */
+}
+
+.navigation a:hover {
+    color: #D71A1A; /* Rojo F1 */
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+.navigation a:active {
+    transform: scale(0.98); /* Achicar al presionar */
+}
+
+.main-container {
+    background-color: #1C1C1C; /* Negro F1 */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.description {
+    text-align: left; /* Alinea el texto a la izquierda */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    max-width: 800px; /* Ancho máximo del contenedor */
+}
+
+.description p {
+    margin: 10px 0;
+}
