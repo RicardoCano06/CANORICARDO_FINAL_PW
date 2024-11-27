@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #1C1C1C; /* Negro F1 */
+    color: #FFFFFF; /* Blanco */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,45 +10,51 @@ body {
 }
 
 .login-container {
-    background-color: #fff;
+    background-color: #1C1C1C; /* Negro F1 */
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    color: #FFFFFF; /* Blanco */
 }
 
 h1 {
     margin-bottom: 20px;
+    color: #D71A1A; /* Rojo F1 */
 }
 
 label {
     display: block;
     margin: 10px 0 5px;
+    color: #C4C4C4; /* Gris */
 }
 
 input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #C4C4C4; /* Gris */
     border-radius: 5px;
+    background-color: #1C1C1C; /* Negro F1 */
+    color: #FFFFFF; /* Blanco */
 }
 
 button {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #D71A1A; /* Rojo F1 */
+    color: #FFFFFF; /* Blanco */
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #C4C4C4; /* Gris */
+    color: #1C1C1C; /* Negro F1 */
 }
 
 #message {
     margin-top: 20px;
-    color: red;
+    color: #D71A1A; /* Rojo F1 */
 }
