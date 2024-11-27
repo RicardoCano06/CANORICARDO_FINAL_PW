@@ -8,7 +8,6 @@ body {
     flex-direction: column;
     height: 100vh;
     margin: 0;
-    overflow-y: auto;
 }
 
 .header {
@@ -36,10 +35,6 @@ body {
     text-decoration: underline; /* Subrayado al pasar el mouse */
 }
 
-.navigation a:active {
-    transform: scale(0.98); /* Achicar al presionar */
-}
-
 .main-container {
     background-color: #1C1C1C; /* Negro F1 */
     padding: 20px;
@@ -47,51 +42,43 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 90%;
-    max-width: 1200px;
+    max-width: 600px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px auto; /* Centra la tabla horizontalmente */
-}
-
-th, td {
-    border: 1px solid #C4C4C4; /* Gris */
-    padding: 10px;
-    text-align: left;
-}
-
-th {
-    background-color: #D71A1A; /* Rojo F1 */
-    color: #FFFFFF; /* Blanco */
-    animation: headerAnimation 2s infinite;
-}
-
-@keyframes headerAnimation {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-}
-
-td button {
+label {
     display: block;
-    margin: 0 auto; /* Centra el botón dentro de la celda */
+    margin: 10px 0 5px;
+    color: #C4C4C4; /* Gris */
+}
+
+input, textarea {
+    width: calc(100% - 22px); /* Ajusta el ancho del input y textarea */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #C4C4C4; /* Gris */
+    border-radius: 5px;
+    background-color: #1C1C1C; /* Negro F1 */
+    color: #FFFFFF; /* Blanco */
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
     background-color: #D71A1A; /* Rojo F1 */
     color: #FFFFFF; /* Blanco */
     border: none;
     border-radius: 5px;
-    padding: 10px;
     cursor: pointer;
-    transition: transform 0.2s;
+    margin-bottom: 10px;
 }
 
-td button:hover {
+button:hover {
     background-color: #C4C4C4; /* Gris */
     color: #1C1C1C; /* Negro F1 */
-    transform: scale(1.05); /* Agrandar al pasar el mouse */
 }
 
-td button:active {
-    transform: scale(0.98); /* Achicar al presionar */
+#formMessage {
+    margin-top: 20px;
+    color: #D71A1A; /* Rojo F1 */
 }

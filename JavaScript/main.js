@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let nombre = prompt("Bienvenido a DRS Express. ¿Cuál es tu nombre?");
+    alert("Bienvenido a DRS Express.");
+    let nombre = prompt("¿Cuál es tu nombre?");
     if (!nombre) {
         nombre = "visitante";
     }

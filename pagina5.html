@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Calculos</title>
+    <link rel="stylesheet" href="Estilos/pagina5.css">
+    <script src="JavaScript/pagina5.js" defer></script>
+</head>
+<body>
+    <div class="header">
+        <h1>Tabla de Calculos</h1>
+        <div class="navigation">
+            <a href="main.html">Página Principal</a>
+            <a href="pagina3.html">Apis</a>
+            <a href="pagina4.html">Formulario de Estudiante</a>
+            <a href="index.html">Cerrar Sesión</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>OPERACIÓN</th>
+                    <th>DESCRIPCIÓN</th>
+                    <th>BOTONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Total Producto</td>
+                    <td>Calcular el precio por la cantidad</td>
+                    <td><button onclick="calcularTotalProducto()">Calcular</button></td>
+                </tr>
+                <tr>
+                    <td>Porcentaje</td>
+                    <td>Calcular el 30% del precio</td>
+                    <td><button onclick="calcularPorcentaje()">Calcular</button></td>
+                </tr>
+                <tr>
+                    <td>Descuento</td>
+                    <td>Calcular el 25% de descuento de un precio por la cantidad</td>
+                    <td><button onclick="calcularDescuento()">Calcular</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

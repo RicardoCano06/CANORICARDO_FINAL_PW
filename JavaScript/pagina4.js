@@ -1,44 +1,41 @@
-function calcularSalario() {
-    let salario = prompt("Ingrese el salario:");
-    let descuento = prompt("Ingrese el porcentaje de descuento:");
-    if (salario !== null && descuento !== null) {
-        salario = parseFloat(salario);
-        descuento = parseFloat(descuento);
-        if (!isNaN(salario) && !isNaN(descuento)) {
-            let total = salario - (salario * (descuento / 100));
-            alert(`El total del salario después del descuento es: ${total}`);
-        } else {
-            alert("Por favor, ingrese valores numéricos válidos.");
-        }
-    }
-}
+document.addEventListener('DOMContentLoaded', function() {
+    emailjs.init('d_K3sWTx_5HbLV2a3');
 
-function calcularPuntos() {
-    let puntos1 = prompt("Ingrese el primer puntaje:");
-    let puntos2 = prompt("Ingrese el segundo puntaje:");
-    let puntos3 = prompt("Ingrese el tercer puntaje:");
-    if (puntos1 !== null && puntos2 !== null && puntos3 !== null) {
-        puntos1 = parseFloat(puntos1);
-        puntos2 = parseFloat(puntos2);
-        puntos3 = parseFloat(puntos3);
-        if (!isNaN(puntos1) && !isNaN(puntos2) && !isNaN(puntos3)) {
-            let total = puntos1 + puntos2 + puntos3;
-            alert(`El total de los puntajes es: ${total}`);
-        } else {
-            alert("Por favor, ingrese valores numéricos válidos.");
-        }
-    }
-}
+    const studentForm = document.getElementById('studentForm');
+    const formMessage = document.getElementById('formMessage');
+    const clearFormButton = document.getElementById('clearForm');
+    const gradeInput = document.getElementById('grade');
 
-function calcularPorcentaje() {
-    let puntaje = prompt("Ingrese el puntaje:");
-    if (puntaje !== null) {
-        puntaje = parseFloat(puntaje);
-        if (!isNaN(puntaje)) {
-            let porcentaje = puntaje * 0.15;
-            alert(`El 15% del puntaje es: ${porcentaje}`);
-        } else {
-            alert("Por favor, ingrese un valor numérico válido.");
-        }
-    }
-}
+    gradeInput.addEventListener('input', function(event) {
+        let value = event.target.value;
+        value = value.replace(/\D/g, ''); // Eliminar caracteres no numéricos       
+        event.target.value = value;
+    });
+
+    studentForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const student = document.getElementById('student').value;
+        const grade = document.getElementById('grade').value.replace(/\./g, '');
+        const message = document.getElementById('message').value;
+        const sender = document.getElementById('sender').value;
+
+        emailjs.send('service_zjsadj6', 'template_ktnsfbi', {
+            student: student,
+            grade: grade,
+            message: message,
+            sender: sender
+        }).then(function(response) {
+            formMessage.style.color = 'green';
+            formMessage.textContent = 'Mensaje enviado exitosamente.';
+        }).catch(function(error) {
+            formMessage.style.color = 'red';
+            formMessage.textContent = 'Hubo un error al enviar el mensaje.';
+        });
+    });
+
+    clearFormButton.addEventListener('click', function() {
+        studentForm.reset();
+        formMessage.textContent = '';
+    });
+});

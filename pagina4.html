@@ -3,47 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabla de Calculos</title>
+    <title>Formulario de Estudiante</title>
     <link rel="stylesheet" href="Estilos/pagina4.css">
-    <script src="JavaScript/pagina4.js" defer></script>
 </head>
 <body>
     <div class="header">
-        <h1>Tabla de Calculos</h1>
+        <h1>Formulario de Estudiante</h1>
         <div class="navigation">
-            <a href="pagina2.html">Página Principal</a>
-            <a href="pagina3.html">Formulario de Empleados</a>
+            <a href="main.html">Página Principal</a>
+            <a href="pagina3.html">Apis</a>
+            <a href="pagina5.html">Tabla de Calculos</a>
             <a href="index.html">Cerrar Sesión</a>
         </div>
     </div>
     <div class="main-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>OPERACIÓN</th>
-                    <th>DESCRIPCIÓN</th>
-                    <th>BOTONES</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Calculo de Salario</td>
-                    <td>Ingresar el salario y el descuento para calcular el total</td>
-                    <td><button onclick="calcularSalario()">Calcular</button></td>
-                </tr>
-                <tr>
-                    <td>Total de puntos</td>
-                    <td>Ingresar 3 puntajes y calcular el total</td>
-                    <td><button onclick="calcularPuntos()">Calcular</button></td>
-                </tr>
-                <tr>
-                    <td>Porcentaje de puntos</td>
-                    <td>Ingresar un puntaje y calcular el 15% del puntaje</td>
-                    <td><button onclick="calcularPorcentaje()">Calcular</button></td>
-                </tr>
-            </tbody>
-        </table>
+        <form id="studentForm">
+            <label for="student">Nombre completo del Estudiante</label>
+            <input type="text" id="student" name="student" required>
+            <label for="grade">Calificación</label>
+            <input type="text" id="grade" name="grade" required>
+            <label for="message">Mensaje de Observación</label>
+            <textarea id="message" name="message" required></textarea>
+            <label for="sender">Nombre del Remitente</label>
+            <input type="text" id="sender" name="sender" required>
+            <button type="submit">Enviar</button>
+            <button type="button" id="clearForm">Limpiar</button>
+        </form>
+        <p id="formMessage"></p>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="JavaScript/pagina4.js"></script>
 </body>
 </html>

@@ -50,76 +50,48 @@ body {
     max-width: 1200px;
 }
 
-h2 {
-    margin-bottom: 20px;
-    color: #D71A1A; /* Rojo F1 */
-}
-
-.card-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.card {
-    background-color: #1C1C1C; /* Negro F1 */
-    padding: 20px;
-    border-radius: 5px;
-    border: 2px solid #D71A1A; /* Rojo F1 */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 30%;
-    min-width: 300px;
-    margin: 10px;
-    box-sizing: border-box;
-}
-
-label {
-    display: block;
-    margin: 10px 0 5px;
-    color: #C4C4C4; /* Gris */
-}
-
-input {
-    width: calc(100% - 22px); /* Ajusta el ancho del input */
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #C4C4C4; /* Gris */
-    border-radius: 5px;
-    background-color: #1C1C1C; /* Negro F1 */
-    color: #FFFFFF; /* Blanco */
-    box-sizing: border-box;
-}
-
-button {
+table {
     width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto; /* Centra la tabla horizontalmente */
+}
+
+th, td {
+    border: 1px solid #C4C4C4; /* Gris */
     padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #D71A1A; /* Rojo F1 */
+    color: #FFFFFF; /* Blanco */
+    animation: headerAnimation 2s infinite;
+}
+
+@keyframes headerAnimation {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+td button {
+    display: block;
+    margin: 0 auto; /* Centra el botón dentro de la celda */
     background-color: #D71A1A; /* Rojo F1 */
     color: #FFFFFF; /* Blanco */
     border: none;
     border-radius: 5px;
+    padding: 10px;
     cursor: pointer;
-    margin-bottom: 20px;
-    transition: transform 0.2s; /* Transición para la animación */
+    transition: transform 0.2s;
 }
 
-button:hover {
+td button:hover {
     background-color: #C4C4C4; /* Gris */
     color: #1C1C1C; /* Negro F1 */
     transform: scale(1.05); /* Agrandar al pasar el mouse */
 }
 
-button:active {
+td button:active {
     transform: scale(0.98); /* Achicar al presionar */
-}
-
-#subscriptionMessage, #imageContainer, #dataContainer {
-    margin-top: 20px;
-}
-
-#imageContainer img {
-    max-width: 100%;
-    max-height: 300px; /* Ajusta la altura máxima de la imagen */
-    display: block;
-    margin: 0 auto;
 }
