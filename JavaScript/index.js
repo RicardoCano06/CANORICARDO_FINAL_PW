@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
-        if (username === 'user' && password === 'pass') {
+        if (username === 'USER' && password === 'PASS') {
             message.style.color = 'green';
             message.textContent = 'Ingreso correcto';
 
